@@ -3,6 +3,7 @@ from os import system,chdir,getcwd
 import argparse
 import sys
 from colorama import Fore
+import subprocess
 
 """
 To use the full potential of the script, put the path to this .py file in your environment PATH.
@@ -38,27 +39,77 @@ class Pushing(object):
 
         try:
             if args.status != "False":
+
                 print(Fore.GREEN+f"Adding files {self._files}..."+Fore.RED)
+
+                command = f"git add {self._files}"
+                self._returned_value = subprocess.call(command, shell=True)  
+                if self._returned_value !=0:
+                    print(f"ERROR During executing \"git add {self._files}\" command\n Exit code: {self._returned_value}")
+                    exit()
+
                 system(f"git add {self._files}")
                 print(Fore.GREEN+f"Added files {self._files} successfully")
-                
+
+                # --------------------------------------------------------------------------------------------
                 print(Fore.GREEN+f"Committing with message {self._message}"+Fore.RED)
+
+                command = f"git commit -m \"{self._message}\""
+                self._returned_value = subprocess.call(command, shell=True)  
+                if self._returned_value !=0:
+                    print(f"ERROR During executing \"git commit -m {self._message}\" command\n Exit code: {self._returned_value}")
+                    exit()
+
                 system(f"git commit -m \"{self._message}\"")
                 print(Fore.GREEN+f"Commited with message {self._message} succesfully")
+
+                #---------------------------------------------------------------------------------------------
                 
                 print(Fore.GREEN+f"Pushing changes to repo"+Fore.RED)
+
+                command = f"git push origin"
+                self._returned_value = subprocess.call(command, shell=True)  
+                if self._returned_value !=0:
+                    print(f"ERROR During executing \"git push origin\" command\n Exit code: {self._returned_value}")
+                    exit()
+
                 system(f"git push origin")
                 print(Fore.GREEN+f"Pushed changes to repo succesfully")
 
+                #---------------------------------------------------------------------------------------------
+                
                 print(Fore.WHITE+"Some information: ")
+                if args.check != "False":
+                    print(self)
+
             else:
-                system(f"git add {self._files}|git commit -m \"{self._message}\" | git push origin")
+                
+                command = f"git add {self._files}"
+                self._returned_value = subprocess.call(command, shell=True)  
+                if self._returned_value !=0:
+                    print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
+                    exit()
+                system(f"git add {self._files}")
+
+                command = f"git commit -m {self._message}"
+                self._returned_value = subprocess.call(command, shell=True)  
+                if self._returned_value !=0:
+                    print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
+                    exit()
+                system(f"git commit -m {self._message}")
+
+                command = f"git push origin"
+                self._returned_value = subprocess.call(command, shell=True)  
+                if self._returned_value !=0:
+                    print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
+                    exit()
+                system(f"git push origin")
+                # system(f"git add {self._files} | git commit -m \"{self._message}\" | git push origin")
+                print(Fore.GREEN + "Everything were executed successfully")
         except:
-            print("No git repo/ No file .git/ Error during executing the script")
+            exit()
 
     def __str__(self):
         return f"Your message: {self._message}\nFiles: {self._files}"
         
 obj = Pushing(args.message,args.file)
-if args.check != "False":
-    print(obj)
