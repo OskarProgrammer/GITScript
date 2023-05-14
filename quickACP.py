@@ -112,7 +112,7 @@ class Pushing(object):
         except:
             exit()
 
-    def __str__(self):
+    def __str__(self)->str():
         return f"Your message: {self._message}\nFiles: {self._files}"
         
 obj = Pushing(args.message,args.file)
