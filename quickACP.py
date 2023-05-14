@@ -90,6 +90,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git add {self._files}")
+                print()
 
                 command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -97,6 +98,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git commit -m \"{self._message}\"")
+                print()
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -104,6 +106,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git push origin")
+                print()
                 # system(f"git add {self._files} | git commit -m \"{self._message}\" | git push origin")
                 if args.check != "False":
                     print(Fore.WHITE+"Some information: ")
