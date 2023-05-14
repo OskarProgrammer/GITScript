@@ -85,7 +85,7 @@ class Pushing(object):
                     print("-"*60)
                     print(Fore.WHITE+"Some information: ")
                     print(self)
-
+#
             else:
                 
                 command = f"git add {self._files}"
