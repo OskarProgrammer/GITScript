@@ -40,7 +40,7 @@ class Pushing(object):
         try:
             if args.status != "False":
 
-                print(Fore.GREEN+f"Adding files {self._files}..."+Fore.WHITE+"\n")
+                print(Fore.GREEN+f"Adding files {self._files}   ..."+Fore.WHITE)
 
                 command = f"git add {self._files}"
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -77,11 +77,12 @@ class Pushing(object):
                 
                 system(f"git push origin")
                 print(Fore.GREEN+f"Pushed changes to repo succesfully")
-                print("-"*20)
+                
 
                 #---------------------------------------------------------------------------------------------
                 
                 if args.check != "False":
+                    print("-"*20)
                     print(Fore.WHITE+"Some information: ")
                     print(self)
 
@@ -109,11 +110,13 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git push origin")
-                print("-"*20)
+                
                 # system(f"git add {self._files} | git commit -m \"{self._message}\" | git push origin")
                 if args.check != "False":
+                    print("-"*60)
                     print(Fore.WHITE+"Some information: ")
                     print(self)
+                print("-"*60)
                 print(Fore.GREEN + "Everything were executed successfully")
         except:
             exit()
