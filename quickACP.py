@@ -78,8 +78,8 @@ class Pushing(object):
 
                 #---------------------------------------------------------------------------------------------
                 
-                print(Fore.WHITE+"Some information: ")
                 if args.check != "False":
+                    print(Fore.WHITE+"Some information: ")
                     print(self)
 
             else:
