@@ -124,5 +124,12 @@ class Pushing(object):
 
     def __str__(self)->str():
         return f"Your message: {self._message}\nFiles: {self._files}"
-        
+    
+    def tests(self,command):
+        self._command = command
+        self._returned_value = subprocess.call(self._command, shell=True)  
+        if self._returned_value !=0:
+            print(Fore.RED+f"ERROR During executing \"{self._command}\" command\nExit code: {self._returned_value}")
+            exit()
+            
 obj = Pushing(args.message,args.file)
