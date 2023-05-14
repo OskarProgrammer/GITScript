@@ -105,6 +105,9 @@ class Pushing(object):
                     exit()
                 system(f"git push origin")
                 # system(f"git add {self._files} | git commit -m \"{self._message}\" | git push origin")
+                if args.check != "False":
+                    print(Fore.WHITE+"Some information: ")
+                    print(self)
                 print(Fore.GREEN + "Everything were executed successfully")
         except:
             exit()
