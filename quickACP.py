@@ -50,7 +50,7 @@ class Pushing(object):
 
                 system(f"git add {self._files}")
                 print(Fore.GREEN+f"Added files {self._files} successfully")
-                print("-"*20)
+                print("-"*60)
 
                 # --------------------------------------------------------------------------------------------
                 print(Fore.GREEN+f"Committing with message \"{self._message}\""+Fore.WHITE+"\n")
@@ -63,7 +63,7 @@ class Pushing(object):
 
                 system(f"git commit -m \"{self._message}\"")
                 print(Fore.GREEN+f"Commited with message \"{self._message}\"succesfully")
-                print("-"*20)
+                print("-"*60)
 
                 #---------------------------------------------------------------------------------------------
                 
@@ -82,7 +82,7 @@ class Pushing(object):
                 #---------------------------------------------------------------------------------------------
                 
                 if args.check != "False":
-                    print("-"*20)
+                    print("-"*60)
                     print(Fore.WHITE+"Some information: ")
                     print(self)
 
@@ -94,7 +94,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git add {self._files}")
-                print("-"*20)
+                print("-"*60)
 
                 command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -102,7 +102,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git commit -m \"{self._message}\"")
-                print("-"*20)
+                print("-"*60)
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
