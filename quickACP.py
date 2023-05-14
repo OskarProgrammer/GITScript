@@ -61,7 +61,7 @@ class Pushing(object):
                     exit()
 
                 system(f"git commit -m \"{self._message}\"")
-                print(Fore.GREEN+f"Commited with message {self._message} succesfully")
+                print(Fore.GREEN+f"Commited with message \"{self._message}\"succesfully")
 
                 #---------------------------------------------------------------------------------------------
                 
