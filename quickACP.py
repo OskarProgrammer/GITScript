@@ -102,7 +102,6 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git commit -m \"{self._message}\"")
-                print("-"*60)
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
