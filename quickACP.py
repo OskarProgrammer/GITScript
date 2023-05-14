@@ -50,6 +50,7 @@ class Pushing(object):
 
                 system(f"git add {self._files}")
                 print(Fore.GREEN+f"Added files {self._files} successfully")
+                print("-"*20)
 
                 # --------------------------------------------------------------------------------------------
                 print(Fore.GREEN+f"Committing with message \"{self._message}\""+Fore.WHITE+"\n")
@@ -62,6 +63,7 @@ class Pushing(object):
 
                 system(f"git commit -m \"{self._message}\"")
                 print(Fore.GREEN+f"Commited with message \"{self._message}\"succesfully")
+                print("-"*20)
 
                 #---------------------------------------------------------------------------------------------
                 
@@ -75,6 +77,7 @@ class Pushing(object):
                 
                 system(f"git push origin")
                 print(Fore.GREEN+f"Pushed changes to repo succesfully")
+                print("-"*20)
 
                 #---------------------------------------------------------------------------------------------
                 
@@ -90,7 +93,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git add {self._files}")
-                print()
+                print("-"*20)
 
                 command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -98,7 +101,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git commit -m \"{self._message}\"")
-                print()
+                print("-"*20)
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -106,7 +109,7 @@ class Pushing(object):
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
                 system(f"git push origin")
-                print()
+                print("-"*20)
                 # system(f"git add {self._files} | git commit -m \"{self._message}\" | git push origin")
                 if args.check != "False":
                     print(Fore.WHITE+"Some information: ")
