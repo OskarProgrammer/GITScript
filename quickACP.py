@@ -45,7 +45,7 @@ class Pushing(object):
                 command = f"git add {self._files}"
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
-                    print(f"ERROR During executing \"git add {self._files}\" command\n Exit code: {self._returned_value}")
+                    print(f"ERROR During executing \"git add {self._files}\" command\nExit code: {self._returned_value}")
                     exit()
 
                 system(f"git add {self._files}")
@@ -58,7 +58,7 @@ class Pushing(object):
                 command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
-                    print(f"ERROR During executing \"git commit -m {self._message}\" command\n Exit code: {self._returned_value}")
+                    print(f"ERROR During executing \"git commit -m {self._message}\" command\nExit code: {self._returned_value}")
                     exit()
 
                 system(f"git commit -m \"{self._message}\"")
@@ -72,7 +72,7 @@ class Pushing(object):
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
-                    print(f"ERROR During executing \"git push origin\" command\n Exit code: {self._returned_value}")
+                    print(f"ERROR During executing \"git push origin\" command\nExit code: {self._returned_value}")
                     exit()
                 
                 system(f"git push origin")
@@ -94,21 +94,21 @@ class Pushing(object):
                 command = f"git add {self._files}"
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
-                    print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
+                    print(Fore.RED+f"ERROR During executing \"{command}\" command\nExit code: {self._returned_value}")
                     exit()
                 system(f"git add {self._files}")
 
                 command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
-                    print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
+                    print(Fore.RED+f"ERROR During executing \"{command}\" command\nExit code: {self._returned_value}")
                     exit()
                 system(f"git commit -m \"{self._message}\"")
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
-                    print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
+                    print(Fore.RED+f"ERROR During executing \"{command}\" command\nExit code: {self._returned_value}")
                     exit()
                 system(f"git push origin")
                 
