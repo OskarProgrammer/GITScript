@@ -91,12 +91,12 @@ class Pushing(object):
                     exit()
                 system(f"git add {self._files}")
 
-                command = f"git commit -m {self._message}"
+                command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
                 if self._returned_value !=0:
                     print(Fore.RED+f"ERROR During executing \"{command}\" command\n Exit code: {self._returned_value}")
                     exit()
-                system(f"git commit -m {self._message}")
+                system(f"git commit -m \"{self._message}\"")
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
