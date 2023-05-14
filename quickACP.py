@@ -40,7 +40,7 @@ class Pushing(object):
         try:
             if args.status != "False":
 
-                print(Fore.GREEN+f"Adding files {self._files}..."+Fore.RED)
+                print(Fore.GREEN+f"Adding files {self._files}..."+Fore.WHITE)
 
                 command = f"git add {self._files}"
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -52,7 +52,7 @@ class Pushing(object):
                 print(Fore.GREEN+f"Added files {self._files} successfully")
 
                 # --------------------------------------------------------------------------------------------
-                print(Fore.GREEN+f"Committing with message {self._message}"+Fore.RED)
+                print(Fore.GREEN+f"Committing with message \"{self._message}\""+Fore.WHITE)
 
                 command = f"git commit -m \"{self._message}\""
                 self._returned_value = subprocess.call(command, shell=True)  
@@ -65,7 +65,7 @@ class Pushing(object):
 
                 #---------------------------------------------------------------------------------------------
                 
-                print(Fore.GREEN+f"Pushing changes to repo"+Fore.RED)
+                print(Fore.GREEN+f"Pushing changes to repo"+Fore.WHITE)
 
                 command = f"git push origin"
                 self._returned_value = subprocess.call(command, shell=True)  
